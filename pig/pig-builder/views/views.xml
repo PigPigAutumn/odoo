@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="pig-builder.list">
+      <field name="name">pig-builder list</field>
+      <field name="model">pig-builder.pig-builder</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="pig-builder.action_window">
+      <field name="name">pig-builder window</field>
+      <field name="res_model">pig-builder.pig-builder</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="pig-builder.action_server">
+      <field name="name">pig-builder server</field>
+      <field name="model_id" ref="model_pig-builder_pig-builder"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="pig-builder" id="pig-builder.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="pig-builder.menu_1" parent="pig-builder.menu_root"/>
+    <menuitem name="Menu 2" id="pig-builder.menu_2" parent="pig-builder.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="pig-builder.menu_1_list" parent="pig-builder.menu_1"
+              action="pig-builder.action_window"/>
+    <menuitem name="Server to list" id="pig-builder" parent="pig-builder.menu_2"
+              action="pig-builder.action_server"/>
+    -->
+  </data>
+</odoo>

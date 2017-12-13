@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="single_choose" model="question.type">
+            <field name="name">单项选择题</field>
+            <field name="value">1</field>
+        </record>
+
+        <record id="multi_choose" model="question.type">
+            <field name="name">多项选择题</field>
+            <field name="value">2</field>
+        </record>
+
+        <record id="fill_blank" model="question.type">
+            <field name="name">填空题</field>
+            <field name="value">3</field>
+        </record>
+
+        <record id="judge" model="question.type">
+            <field name="name">判断题</field>
+            <field name="value">4</field>
+        </record>
+
+        <record id="rich_text" model="question.type">
+            <field name="name">分析题/论述题</field>
+            <field name="value">5</field>
+        </record>
+
+        <record id="programming" model="question.type">
+            <field name="name">编程题</field>
+            <field name="value">6</field>
+        </record>
+    </data>
+</odoo>

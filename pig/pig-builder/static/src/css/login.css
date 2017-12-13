@@ -1,0 +1,150 @@
+@charset "utf-8";
+/* 登录页用的css*/
+html,body{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background: url('/pig-builder/static/src/img/autumn_blur.jpg');
+}
+.main{
+    margin: 0 auto;
+    width: 320px;
+    height: 512px;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(0,0,0,.1);
+    background-color: #fff;
+    /*水平垂直居中子item*/
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+}
+
+.main>div{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.heading{
+    padding:10px;
+    padding-top: 14px;
+    border-bottom: 2px solid #3498db;
+    width: 260px;
+}
+/* 登录图标*/
+.login-blank{
+    width:80px;
+    height: 80px;
+    margin-top: 20px;
+}
+
+/* 登录按钮样式*/
+.login-btn{
+    width: 280px;
+    height: 40px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    line-height: 40px;
+}
+
+.login-btn:focus{
+    border: none;
+    outline: none;
+}
+
+/*输入框样式*/
+.login-input{
+    width: 220px;
+    padding: 15px;
+    padding-left: 40px;
+    font-size: 14px;
+    color: #333;
+    border: 1.5px solid #bfbfbf;
+    background-color: hsla(0,0%,71%,.1);
+    outline: none;
+    autocomplete: off;
+}
+
+.login-input: focus{
+    outline: none;
+}
+
+.input-top{
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border-bottom: 0px;
+    background-image: url('/pig-builder/static/src/img/people.png');
+    background-repeat: no-repeat;
+    background-position: 12px 12px;
+    background-size: 20px 20px;
+}
+
+.input-bottom{
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    background-image: url('/pig-builder/static/src/img/unlock.png');
+    background-repeat: no-repeat;
+    background-position: 12px 12px;
+    background-size: 20px 20px;
+}
+
+.option-group{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    font-size: 12px;
+    margin-top: 20px;
+}
+
+.login-checkbox+span{
+    font-size: 12px;
+}
+
+.login-radio{
+    display: inline-block;
+}
+
+.registry-btn{
+    background-color: #27ae60;
+}
+
+.hr-label{
+    width: 280px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hr-line{
+    height: 1px;
+    background-color: hsla(0,0%,71%,1);
+    flex-grow: 1;
+}
+
+.hr-text{
+    color: #666;
+    font-size: 14px;
+    margin-left: 8px;
+    margin-right: 8px;
+}

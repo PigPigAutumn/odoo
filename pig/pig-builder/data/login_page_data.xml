@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <recoid id="background" model="page.login">
+            <field name="background_path">pig-builder,/static/src/img/login_background.jpg</field>
+            <field name="login_blank">pig-builder,/static/src/img/user.png</field>
+            <field name="user_icon_path">pig-builder,/static/src/img/people.png</field>
+            <field name="pwd_icon_path">pig-builder,/static/src/img/unlock.png</field>
+        </recoid>
+    </data>
+</odoo>

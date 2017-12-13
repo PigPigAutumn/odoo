@@ -1,0 +1,64 @@
+body{
+    margin: 0;
+}
+.navbar-main{
+    width: 100%;
+    height: 60px;
+    background-color: #3498db;
+}
+
+.p_user_menu {
+    margin-left: 24px;
+    margin-right: 64px;
+}
+
+.navbar-main a.oe_menu_leaf, .navbar-main a.oe_menu_toggler, .navbar-main a.dropdown-toggle{
+    height: 60px;
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: #fff !important;
+}
+
+.navbar-main a.oe_menu_toggler:hover, .navbar-main a.oe_menu_leaf:hover, .navbar-main a.dropdown-toggle:hover{
+    background-color: #2980b9 !important;
+}
+
+.nav .open > a, .nav .open > a:hover{
+    background-color: #2980b9 !important;
+}
+
+.nav > li > a:hover, .nav > li > a:focus{
+    background-color: #2980b9 !important;
+}
+
+.navbar-right{
+    margin-right: 16px !important;
+}
+
+.user-avatar{
+    width: 38px;
+    height: 38px;
+}
+.navbar-icon{
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+
+.p_user_menu>.dropdown-menu a{
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: content;
+}
+
+.dropdown-menu-icon{
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}

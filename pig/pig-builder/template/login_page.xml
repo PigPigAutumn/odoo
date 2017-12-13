@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="hr_label">
+        <t>
+            <div class="hr-label">
+                <span class="hr-line"/>
+                <span class="hr-text" t-esc="hr_label_text if hr_label_text else '这是带分割线的文本'"/>
+                <span class="hr-line"/>
+            </div>
+        </t>
+    </template>
+
+    <template id="login_page" name="Login Page">
+        <t t-call="web.layout">
+            <t t-set="head">
+                <link rel="stylesheet" href="/pig-builder/static/src/css/login.css"/>
+            </t>
+
+            <t t-set="body_classname" t-value="'container'"/>
+
+            <div class="container">
+                <form class="main" method="POST">
+                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <span class="heading">欢迎登录</span>
+                    <img class="login-blank" src="/pig-builder/static/src/img/user.png"/>
+                    <div>
+                        <div>
+                            <input type="text" placeholder="登录名" class="login-input input-top" name="login"/>
+                        </div>
+                        <div>
+                            <input type="password" placeholder="密码" class="login-input input-bottom" name="password"/>
+                        </div>
+                        <div class="option-group">
+                            <div>
+                                <div style="display: inline-block">
+                                    <input type="radio" value="student" name="user_type" class="login-radio"/>
+                                    <span>学生</span>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input type="radio" value="teacher" name="user_type" class="login-radio"/>
+                                    <span>教师</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="login-btn">登录</button>
+                    <t t-set="hr_label_text" t-value="'没有账号?'"/>
+                    <t t-call="pig-builder.hr_label"/>
+                    <a href="/web/registry" class="login-btn registry-btn">创建新账号</a>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

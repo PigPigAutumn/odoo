@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="registry_page">
+        <t t-call="web.layout">
+            <t t-set="head">
+                <link rel="stylesheet" href="/pig-builder/static/src/css/registry.css"/>
+            </t>
+
+            <t t-set="body_classname" t-value="container"/>
+
+            <div class="container">
+
+            </div>
+        </t>
+    </template>
+</odoo>

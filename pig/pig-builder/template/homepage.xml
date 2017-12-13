@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <!-- 导航栏 -->
+    <template id="homepage_navbar">
+        <nav id="p_main_navbar" class="navbar-main">
+            <t t-if="debug">
+                <!-- 导航菜单组 -->
+                <ul class="nav navbar-nav navbar-left oe_application_menu_placeholder" style="display: none;">
+                    <li t-foreach="menu_data['children']" t-as="menu">
+                        <t t-call="web.menu_link"/>
+                    </li>
+                    <li id="menu_more_container" class="dropdown" style="display: none;">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">More <b class="caret"></b></a>
+                        <ul id="menu_more" class="dropdown-menu"></ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right oe_systray" style="display: none;"/>
+            </t>
+
+            <!-- 导航栏右侧的用户菜单组 -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <img class="navbar-icon" t-att-src="'/pig-builder/static/src/img/activity.png'"/>
+                        <span>最近活动</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <img class="navbar-icon" t-att-src="'/pig-builder/static/src/img/remind.png'"/>
+                        <span>通知</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <img class="navbar-icon" t-att-src="'/pig-builder/static/src/img/message.png'"/>
+                        <span>消息</span>
+                    </a>
+                </li>
+
+                <li class="p_user_menu">
+                    <a class="dropdown-toggle" data-toggle="dropdown" herf="#">
+                        <img class="img-circle user-avatar" t-att-src="'/web/static/src/img/user_menu_avatar.png'"/>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a herf="/web/user/info">
+                                <img class="dropdown-menu-icon" t-att-src="'/pig-builder/static/src/img/people.png'"/>
+                                <span>个人主页</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/web/user/course">
+                                <img class="dropdown-menu-icon" t-att-src="'/pig-builder/static/src/img/courses.png'"/>
+                                <span>我的课程</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/web/user/feedback">
+                                <img class="dropdown-menu-icon" t-att-src="'/pig-builder/static/src/img/feedback.png'"/>
+                                <span>建议反馈</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/web/about">关于pigpigAutumn</a>
+                        </li>
+                        <li>
+                            <a href="/web/setting">
+                                <img class="dropdown-menu-icon" t-att-src="'/pig-builder/static/src/img/setup.png'"/>
+                                <span>设置</span>
+                            </a>
+                        </li>
+                        <li class="divider"/>
+                        <li>
+                            <a data-menu="logout" href="/web/session/logout?redirect=/" role="menuitem">
+                                <img class="dropdown-menu-icon" t-att-src="'/pig-builder/static/src/img/logout.png'"/>
+                                <span>退出登陆</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </template>
+
+    <!-- 轮播栏 -->
+    <template id="homepage_carousel">
+        <div id="homepage_carousel" class="carousel slide">
+            <!-- 下方导航按钮组 -->
+            <ol class="carousel-indicators">
+                <t t-foreach="homepage_carousel_data" t-as="data" t-as-index="i">
+                    <li data-target="homepage_carousel" data-slide-to="i"/>
+                </t>
+            </ol>
+
+            <!-- 轮播的项目 -->
+            <div class="carousel-inner">
+                <t t-foreach="homepage_carousel_data" t-as="data">
+                    <div>
+                        <img t-att-src="" class="carousel-item"/>
+                        <span t-esc="data.title" class="carousel-title"/>
+                    </div>
+                </t>
+            </div>
+
+            <!-- 轮播的导航按钮 -->
+            <a class="carousel-control left" herf="#homepage_carousel" data-slide="prev"/>
+            <a class="carousel-control right" herf="#homepage_carousel" data-slide="next"/>
+        </div>
+    </template>
+    <template id="homepage" name="Home">
+        <t t-call="web.layout">
+            <t t-set="head_web">
+                <script type="text/javascript">
+                    odoo.session_info = <t t-raw="session_info"/>;
+                </script>
+
+                <t t-call-assets="web.assets_common" t-js="false"/>
+                <t t-call-assets="web.assets_backend" t-js="false"/>
+                <t t-call-assets="web.assets_common" t-css="false"/>
+                <t t-call-assets="web.assets_backend" t-css="false"/>
+
+                <![CDATA[
+                    <!--[if lt IE 10]>
+                        <body class="ie9">
+                    <![endif]-->
+                ]]>
+
+                <script type="text/javascript">
+                    odoo.define('web.web_client', function (require) {
+                        var WebClient = require('web.WebClient');
+                        var web_client = new WebClient();
+                        $(function() {
+                            web_client.setElement($(document.body));
+                            web_client.start();
+                        });
+                        return web_client;
+                    });
+                </script>
+
+                <!-- 引入自定义的css文件 -->
+                <link rel="stylesheet" href="/pig-builder/static/src/css/navbar.css"/>
+            </t>
+            <t t-set="head" t-value="head_web + (head or '')"/>
+            <t t-set="body_classname" t-value="'o_web_client'"/>
+
+            <!-- 调用自定义必须要加上模块名 -->
+            <t t-call="pig-builder.homepage_navbar"/>
+            <!--<t t-call="pig-builder.homepage_carousel"/>-->
+            <!-- 下面是odoo的主面板 -->
+            <div class="o_main">
+                <div class="o_sub_menu" groups="base.group_user,base.group_portal">
+                    <t t-call="web.menu_secondary"/>
+                </div>
+                <div class="o_main_content"/>
+            </div>
+        </t>
+    </template>
+</odoo>
